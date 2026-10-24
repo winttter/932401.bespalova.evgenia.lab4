@@ -12,6 +12,12 @@ console.log(findMax(growthArray));
 console.log(filterMoreThan20(growthArray));
 console.log(findSumArray(growthArray));
 
+let below5 = amountElementsBelowX(growthArray, 5);
+console.log(`количество элементов <= 5: ${below5}`);
+
+let proportionBelow5 = amountElementsBelowX(growthArray, 5);
+console.log(`доля элементов <= 5: ${(below5 / growthArray.length * 100).toFixed(2)} %`);
+
 function findMax(array)
 {
     let max = array[0];
@@ -49,3 +55,16 @@ function findSumArray(array)
     return sum;
 }
 
+function amountElementsBelowX(array, x)
+{
+    let count = 0;
+    for (let i = 0; i < array.length; i++)
+    {
+        if (array[i] <= x)
+        {
+            count += 1;
+        }
+    }
+
+    return count;
+}
