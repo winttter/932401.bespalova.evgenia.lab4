@@ -1,23 +1,5 @@
 const growthArray = [25, 1, 70, 55, 63, 12, 3];
 
-const userName = prompt('Как вас зовут?', 'Евгения');
-if (userName) {
-    alert(`Привет, ${userName}!`);
-} else {
-    alert(`Добро пожаловать, человек из прошлого!`)
-}
-
-console.log(growthArray);
-console.log(findMax(growthArray));
-console.log(filterMoreThan20(growthArray));
-console.log(findSumArray(growthArray));
-
-let below5 = amountElementsBelowX(growthArray, 5);
-console.log(`количество элементов <= 5: ${below5}`);
-
-let proportionBelow5 = amountElementsBelowX(growthArray, 5);
-console.log(`доля элементов <= 5: ${(below5 / growthArray.length * 100).toFixed(2)} %`);
-
 function findMax(array)
 {
     let max = array[0];
@@ -67,4 +49,29 @@ function amountElementsBelowX(array, x)
     }
 
     return count;
+}
+
+const userName = prompt('Как вас зовут?', 'Евгения');
+if (userName) {
+    alert(`Привет, ${userName}!`);
+} else {
+    alert(`Добро пожаловать, человек из прошлого!`)
+}
+
+console.log(growthArray);
+
+let below5 = amountElementsBelowX(growthArray, 5);
+console.log(`количество элементов <= 5: ${below5}`);
+
+let maxGrowth = findMax(growthArray);
+let mediumGrowth = (findSumArray(growthArray) / growthArray.length).toFixed(2);
+let highGrowthCount = filterMoreThan20(growthArray).length;
+
+alert(`Средний прогнозируемый рост – ${mediumGrowth} %, ${highGrowthCount} прогнозов – высокие`);
+
+console.log(`доля элементов <= 5: ${(below5 / growthArray.length * 100).toFixed(2)} %`);
+
+if (maxGrowth > 50)
+{
+    console.log('Некоторые прогнозы выглядят очень амбициозно!');
 }
